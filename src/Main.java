@@ -102,37 +102,39 @@ public class Main {
                 short_nextShort = %d
                 """, string_next, string_nextLine, int_nextInt, double_nextDouble,
                 !bool_nextBoolean, byte_nextByte, float_nextFloat, short_nextShort);
+        NewString();
+        NewString();
     }
 
     public static void ArithmeticalOperations()
     {
-        final int VAR_INT_1 = 10;
-        final int VAR_INT_2 = 15;
-        final float VAR_FLOAT = 5.0f;
+        final int INT_1 = 10;
+        final int INT_2 = 15;
+        final float FLOAT = 5.0f;
         int value_1 = 1;
 
         System.out.println("Here's arithmetical operations:");
         System.out.printf("""
-                VAR_INT_1 = %d
-                VAR_INT_2 = %d
-                VAR_FLOAT = %f
+                INT_1 = %d
+                INT_2 = %d
+                FLOAT = %f
                 value_1 = %d
-                """, VAR_INT_1, VAR_INT_2, VAR_FLOAT, value_1);
+                """, INT_1, INT_2, FLOAT, value_1);
 
-        int c = VAR_INT_1 + VAR_INT_2;
-        int k = VAR_INT_1 - VAR_INT_2;
-        int d = VAR_INT_1 * VAR_INT_2;
-        float f = VAR_INT_1 * VAR_FLOAT;
-        float h = VAR_INT_1 / VAR_FLOAT;
-        int j = VAR_INT_2 / VAR_INT_1;
-        int l = VAR_INT_1 % VAR_INT_2;
-        System.out.println("c = VAR_INT_1 + VAR_INT_2 = " + c);
-        System.out.println("k = VAR_INT_1 - VAR_INT_2 = " + k);
-        System.out.println("d = VAR_INT_1 * VAR_INT_2 = " + d);
-        System.out.println("f = VAR_INT_1 * VAR_FLOAT = " + f);
-        System.out.println("h = VAR_INT_1 / VAR_FLOAT = " + h);
-        System.out.println("j = VAR_INT_2 / VAR_INT_1 = " + j);
-        System.out.println("l = VAR_INT_1 % VAR_INT_2 = " + l);
+        int c = INT_1 + INT_2;
+        int k = INT_1 - INT_2;
+        int d = INT_1 * INT_2;
+        float f = INT_1 * FLOAT;
+        float h = INT_1 / FLOAT;
+        int j = INT_2 / INT_1;
+        int l = INT_1 % INT_2;
+        System.out.println("c = INT_1 + INT_2 = " + c);
+        System.out.println("k = INT_1 - INT_2 = " + k);
+        System.out.println("d = INT_1 * INT_2 = " + d);
+        System.out.println("f = INT_1 * FLOAT = " + f);
+        System.out.println("h = INT_1 / FLOAT = " + h);
+        System.out.println("j = INT_2 / INT_1 = " + j);
+        System.out.println("l = INT_1 % INT_2 = " + l);
         NewString();
 
         int pre_increment = ++value_1;
@@ -154,12 +156,107 @@ public class Main {
         System.out.println("post_decrement = value_1--");
         System.out.println("value_1 = " + value_1);
         System.out.println("post_decrement = " + post_decrement);
-
+        NewString();
     }
+
+    public static void BitwiseOperations()
+    {
+        final int INT_1 = 2; // 010
+        final int INT_2 = 5; // 101
+        final int INT_3 = 4; // 100
+        System.out.println("Here's bitwise operations:");
+        System.out.println("INT_1 = " + INT_1);
+        System.out.println("INT_2 = " + INT_2);
+        System.out.println("INT_3 = " + INT_3);
+        NewString();
+        System.out.println("Logical multiplication [&]:");
+        System.out.println("INT_1 & INT_2 = " + (INT_1 & INT_2));
+        System.out.println("INT_3 & INT_2 = " + (INT_3 & INT_2));
+        NewString();
+        System.out.println("Logical addition [|]:");
+        System.out.println("INT_1 | INT_2 = " + (INT_1 | INT_2));
+        System.out.println("INT_3 | INT_2 = " + (INT_3 | INT_2));
+        NewString();
+
+        final int NUMBER_TO_ENCRYPT = 45;
+        final int KEY = 102;
+        int encrypted_number = NUMBER_TO_ENCRYPT ^ KEY;
+        int decrypted_number = encrypted_number ^ KEY;
+        System.out.println("Logical addition [^]:");
+        System.out.println("NUMBER_TO_ENCRYPT = " + NUMBER_TO_ENCRYPT);
+        System.out.println("KEY = " + KEY);
+        System.out.println("encrypted_number = NUMBER_TO_ENCRYPT ^ KEY = " + encrypted_number);
+        System.out.println("decrypted_number = encrypted_number ^ KEY = " + decrypted_number);
+        NewString();
+
+        System.out.println("Logical negation [~]:");
+        System.out.println("INT_1 = " + (INT_1));
+        System.out.println("~INT_1 = " + (~INT_1));
+        NewString();
+
+        System.out.println("Shift operations [<<, >>, >>>]:");
+        int shifted_left = INT_1 << 1;
+        System.out.println("INT_1 << 1 = shifted_left = " + shifted_left);
+        int shifted_right = shifted_left >> 2;
+        System.out.println("shifted_left >> 2 = shifted_right = " + shifted_right);
+        int cube_shifted_right = INT_1 >>> 4;
+        System.out.println("INT_1 >>> 4 = cube_shifted_right = " + cube_shifted_right);
+        NewString();
+    }
+
+    public static void ConditionalExpressions()
+    {
+        final int INT_1 = 10;
+        final int INT_2 = 4;
+        boolean c = INT_1 == INT_2;
+        boolean d = INT_1 < INT_2;
+        boolean f = INT_1 <= INT_2;
+        System.out.println("Here's conditional expressions:");
+        System.out.println("Comparison operations:");
+        System.out.println("INT_1 = " + INT_1);
+        System.out.println("INT_2 = " + INT_2);
+        System.out.println("[==]:");
+        System.out.println("boolean c = INT_1 == INT_2 = " + c);
+        System.out.println("[!=]:");
+        System.out.println("boolean c = INT_1 != INT_2 = " + !c);
+        System.out.println("[<]:");
+        System.out.println("boolean d = INT_1 < INT_2 = " + d);
+        System.out.println("[>]:");
+        System.out.println("boolean d = INT_1 > INT_2 = " + !d);
+        System.out.println("[<=]:");
+        System.out.println("boolean f = INT_1 <= INT_2 = " + f);
+        System.out.println("[=>]:");
+        System.out.println("boolean f = INT_1 => INT_2 = " + !f);
+        NewString();
+
+        final boolean BOOL_1 = true;
+        final boolean BOOL_2 = false;
+        System.out.println("Logical operations:");
+        System.out.printf("""
+                    BOOL_1 = %s
+                    BOOL_2 = %s
+                    """, BOOL_1, BOOL_2);
+        System.out.println("[|]:");
+        System.out.println("BOOL_1 | BOOL_2 = " + (BOOL_1 | BOOL_2));
+        System.out.println("[&]:");
+        System.out.println("BOOL_1 & BOOL_2 = " + (BOOL_1 & BOOL_2));
+        System.out.println("[!]:");
+        System.out.println("!BOOL_1 = " + !BOOL_1);
+        System.out.println("[^]:");
+        System.out.println("BOOL_1 ^ BOOL_2 = " + (BOOL_1 ^ BOOL_2));
+        System.out.println("[||]:");
+        System.out.println("BOOL_1 || BOOL_2 = " + (BOOL_1 || BOOL_2));
+        System.out.println("[&&]:");
+        System.out.println("BOOL_1 && BOOL_2 = " + (BOOL_1 && BOOL_2));
+        NewString();
+    }
+
     public static void main(String[] args)
     {
         DataTypes();
-        ConsoleInOut();
+        // ConsoleInOut();
         ArithmeticalOperations();
+        BitwiseOperations();
+        ConditionalExpressions();
     }
 }
