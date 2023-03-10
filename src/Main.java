@@ -250,6 +250,19 @@ public class Main {
         System.out.println("BOOL_1 && BOOL_2 = " + (BOOL_1 && BOOL_2));
         NewString();
     }
+    
+    public static void ifElseConstructions() 
+    {
+        final int INT_1 = 1; 
+        final int INT_2 = 2;
+        System.out.println("Here's examples of if/else constructions"); 
+        System.out.println("INT_1 = " + INT_1); 
+        System.out.println("INT_2 = " + INT_2);
+        if(INT_1 < INT_2) 
+        {
+            System.out.println("if_1: INT_1 < INT_2");
+        }
+    }
 
     public static void main(String[] args)
     {
@@ -258,6 +271,6 @@ public class Main {
         ArithmeticalOperations();
         BitwiseOperations();
         ConditionalExpressions();
-        
+        ifElseConstructions();
     }
 }
