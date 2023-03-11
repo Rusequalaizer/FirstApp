@@ -1,11 +1,10 @@
 import java.util.Scanner;
 public class Main {
-    public static void NewString()
-    {
+    public static void newString() {
         System.out.println();
     }
-    public static void DataTypes()
-    {
+
+    public static void dataTypes() {
         final String TEST_STR = "Hello world from JAVA";
         final boolean TEST_BOOL = false;
         final byte TEST_BYTE = 127;
@@ -21,11 +20,10 @@ public class Main {
         System.out.println("Long type [long]: (" + TEST_LONG + "; 9223372036854775807)");
         System.out.println("Double type [double]: +-4.9*10^(-324) and +-1.7976931348623157*10^(308)");
         System.out.println("Float type [float]: (-3.4*10^(38); 3.4*10^(38)");
-        NewString();
+        newString();
     }
 
-    public static void ConsoleInOut()
-    {
+    public static void consoleInOut() {
         final String STRING = "Hello world";
         final String STRING_N = "Hello\nworld";
         final String TEXT_N = "Hello world \n" +
@@ -34,21 +32,20 @@ public class Main {
                             Hello world
                             from JAVA!
                             """;
-
-        NewString();
+        newString();
         System.out.println("Here's strings out:");
         System.out.printf("STRING: %s", STRING);
-        NewString();
-        NewString();
+        newString();
+        newString();
         System.out.printf("STRING_N:\n%s", STRING_N);
-        NewString();
-        NewString();
+        newString();
+        newString();
         System.out.printf("TEXT_N:\n%s", TEXT_N);
-        NewString();
-        NewString();
+        newString();
+        newString();
         System.out.printf("TEXT:\n%s", TEXT);
-        NewString();
-        NewString();
+        newString();
+        newString();
 
         final int EXAMPLE_D = 10;
         final double EXAMPLE_DOUBLE_F = 1.1d;
@@ -59,18 +56,18 @@ public class Main {
 
         System.out.println("Formatted out:");
         System.out.printf("EXAMPLE_D = %d", EXAMPLE_D);
-        NewString();
+        newString();
         System.out.printf("EXAMPLE_DOUBLE_F = %f", EXAMPLE_DOUBLE_F);
-        NewString();
+        newString();
         System.out.printf("EXAMPLE_FLOAT_F = %f", EXAMPLE_FLOAT_F);
-        NewString();
+        newString();
         System.out.printf("EXAMPLE_E = %e", EXAMPLE_E);
-        NewString();
+        newString();
         System.out.printf("EXAMPLE_C = %c", EXAMPLE_C);
-        NewString();
+        newString();
         System.out.printf("EXAMPLE_X = %x", EXAMPLE_X);
-        NewString();
-        NewString();
+        newString();
+        newString();
 
         Scanner in = new Scanner(System.in);
         System.out.println("Here's input:");
@@ -102,12 +99,11 @@ public class Main {
                 short_nextShort = %d
                 """, string_next, string_nextLine, int_nextInt, double_nextDouble,
                 !bool_nextBoolean, byte_nextByte, float_nextFloat, short_nextShort);
-        NewString();
-        NewString();
+        newString();
+        newString();
     }
 
-    public static void ArithmeticalOperations()
-    {
+    public static void arithmeticalOperations() {
         final int INT_1 = 10;
         final int INT_2 = 15;
         final float FLOAT = 5.0f;
@@ -135,32 +131,31 @@ public class Main {
         System.out.println("h = INT_1 / FLOAT = " + h);
         System.out.println("j = INT_2 / INT_1 = " + j);
         System.out.println("l = INT_1 % INT_2 = " + l);
-        NewString();
+        newString();
 
         int pre_increment = ++value_1;
         System.out.println("pre_increment = ++value_1");
         System.out.println("value_1 = " + value_1);
         System.out.println("pre_increment = " + pre_increment);
-        NewString();
+        newString();
         int post_increment = value_1++;
         System.out.println("post_increment = value_1++");
         System.out.println("value_1 = " + value_1);
         System.out.println("post_increment = " + post_increment);
-        NewString();
+        newString();
         int pre_decrement = --value_1;
         System.out.println("pre_decrement = --value_1");
         System.out.println("value_1 = " + value_1);
         System.out.println("pre_decrement = " + pre_decrement);
-        NewString();
+        newString();
         int post_decrement = value_1--;
         System.out.println("post_decrement = value_1--");
         System.out.println("value_1 = " + value_1);
         System.out.println("post_decrement = " + post_decrement);
-        NewString();
+        newString();
     }
 
-    public static void BitwiseOperations()
-    {
+    public static void bitwiseOperations() {
         final int INT_1 = 2; // 010
         final int INT_2 = 5; // 101
         final int INT_3 = 4; // 100
@@ -168,15 +163,15 @@ public class Main {
         System.out.println("INT_1 = " + INT_1);
         System.out.println("INT_2 = " + INT_2);
         System.out.println("INT_3 = " + INT_3);
-        NewString();
+        newString();
         System.out.println("Logical multiplication [&]:");
         System.out.println("INT_1 & INT_2 = " + (INT_1 & INT_2));
         System.out.println("INT_3 & INT_2 = " + (INT_3 & INT_2));
-        NewString();
+        newString();
         System.out.println("Logical addition [|]:");
         System.out.println("INT_1 | INT_2 = " + (INT_1 | INT_2));
         System.out.println("INT_3 | INT_2 = " + (INT_3 | INT_2));
-        NewString();
+        newString();
 
         final int NUMBER_TO_ENCRYPT = 45;
         final int KEY = 102;
@@ -187,12 +182,12 @@ public class Main {
         System.out.println("KEY = " + KEY);
         System.out.println("encrypted_number = NUMBER_TO_ENCRYPT ^ KEY = " + encrypted_number);
         System.out.println("decrypted_number = encrypted_number ^ KEY = " + decrypted_number);
-        NewString();
+        newString();
 
         System.out.println("Logical negation [~]:");
         System.out.println("INT_1 = " + (INT_1));
         System.out.println("~INT_1 = " + (~INT_1));
-        NewString();
+        newString();
 
         System.out.println("Shift operations [<<, >>, >>>]:");
         int shifted_left = INT_1 << 1;
@@ -201,11 +196,10 @@ public class Main {
         System.out.println("shifted_left >> 2 = shifted_right = " + shifted_right);
         int cube_shifted_right = INT_1 >>> 4;
         System.out.println("INT_1 >>> 4 = cube_shifted_right = " + cube_shifted_right);
-        NewString();
+        newString();
     }
 
-    public static void ConditionalExpressions()
-    {
+    public static void conditionalExpressions() {
         final int INT_1 = 10;
         final int INT_2 = 4;
         boolean c = INT_1 == INT_2;
@@ -227,7 +221,7 @@ public class Main {
         System.out.println("boolean f = INT_1 <= INT_2 = " + f);
         System.out.println("[=>]:");
         System.out.println("boolean f = INT_1 => INT_2 = " + !f);
-        NewString();
+        newString();
 
         final boolean BOOL_1 = true;
         final boolean BOOL_2 = false;
@@ -248,29 +242,26 @@ public class Main {
         System.out.println("BOOL_1 || BOOL_2 = " + (BOOL_1 || BOOL_2));
         System.out.println("[&&]:");
         System.out.println("BOOL_1 && BOOL_2 = " + (BOOL_1 && BOOL_2));
-        NewString();
+        newString();
     }
     
-    public static void ifElseConstructions() 
-    {
+    public static void ifElseConstructions() {
         final int INT_1 = 1; 
         final int INT_2 = 2;
         System.out.println("Here's examples of if/else constructions"); 
         System.out.println("INT_1 = " + INT_1); 
         System.out.println("INT_2 = " + INT_2);
-        if(INT_1 < INT_2) 
-        {
+        if(INT_1 < INT_2) {
             System.out.println("if_1: INT_1 < INT_2");
         }
     }
 
-    public static void main(String[] args)
-    {
-        DataTypes();
-        // ConsoleInOut();
-        ArithmeticalOperations();
-        BitwiseOperations();
-        ConditionalExpressions();
+    public static void main(String[] args) {
+        dataTypes();
+        // consoleInOut();
+        arithmeticalOperations();
+        bitwiseOperations();
+        conditionalExpressions();
         ifElseConstructions();
     }
 }
