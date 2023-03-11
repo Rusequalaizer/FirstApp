@@ -1,10 +1,23 @@
 import java.util.Scanner;
 public class Main {
-    public static void newString() {
+    public static void main(String[] args) {
+        dataTypes();
+        // consoleInOut(); // Uncommenting this method allows you to consider the principles of input
+        arithmeticalOperations();
+        bitwiseOperations();
+        conditionalExpressions();
+        conditionalConstructions();
+        cycles();
+        massives();
+        exampleMethod();
+        introToExceptionHandling();
+    }
+
+    static void newString() {
         System.out.println();
     }
 
-    public static void dataTypes() {
+    static void dataTypes() {
         final String TEST_STR = "Hello world from JAVA";
         final boolean TEST_BOOL = false;
         final byte TEST_BYTE = 127;
@@ -23,7 +36,7 @@ public class Main {
         newString();
     }
 
-    public static void consoleInOut() {
+    static void consoleInOut() {
         final String STRING = "Hello world";
         final String STRING_N = "Hello\nworld";
         final String TEXT_N = "Hello world \n" +
@@ -103,7 +116,7 @@ public class Main {
         newString();
     }
 
-    public static void arithmeticalOperations() {
+    static void arithmeticalOperations() {
         final int INT_1 = 10;
         final int INT_2 = 15;
         final float FLOAT = 5.0f;
@@ -155,7 +168,7 @@ public class Main {
         newString();
     }
 
-    public static void bitwiseOperations() {
+    static void bitwiseOperations() {
         final int INT_1 = 2; // 010
         final int INT_2 = 5; // 101
         final int INT_3 = 4; // 100
@@ -199,7 +212,7 @@ public class Main {
         newString();
     }
 
-    public static void conditionalExpressions() {
+    static void conditionalExpressions() {
         final int INT_1 = 10;
         final int INT_2 = 4;
         boolean c = INT_1 == INT_2;
@@ -245,7 +258,7 @@ public class Main {
         newString();
     }
 
-    public static void conditionalConstructions() {
+    static void conditionalConstructions() {
         final int INT_1 = 1;
         final int INT_2 = 2;
         boolean isTrue = INT_1 < INT_2;
@@ -255,7 +268,7 @@ public class Main {
         System.out.println("INT_2 = " + INT_2);
         if(isTrue) {
             System.out.println("if: INT_1 < INT_2");
-        } else if (INT_1 > INT_2) {
+        } else if(INT_1 > INT_2) {
             System.out.println("else if: INT_1 > INT_2");
         } else {
             System.out.println("else: INT_1 == INT_2");
@@ -265,7 +278,7 @@ public class Main {
         byte exampleVal_1 = (byte)1;
         byte exampleVal_2;
         System.out.println("switch/case construction:");
-        switch (exampleVal_1) {
+        switch(exampleVal_1) {
             case 3:
                 exampleVal_2 = exampleVal_1;
                 System.out.println("case 3: exampleVal_1 = exampleVal_2 = 3");
@@ -290,10 +303,10 @@ public class Main {
         newString();
     }
 
-    public static void cycles() {
+    static void cycles() {
         System.out.println("Here's cycles:");
         System.out.println("cycle [for]:");
-        for (int i = 0; i < 10; i++) {
+        for(int i = 0; i < 10; i++) {
             System.out.printf("i = %d; %d^2 = %d", i, i, (i * i));
             newString();
         }
@@ -304,12 +317,12 @@ public class Main {
             System.out.printf("counter_1 = %d", counter_1);
             counter_1++;
             newString();
-        } while ((counter_1 <= 5) && (counter_1 != 1));
+        } while((counter_1 <= 5) && (counter_1 != 1));
         newString();
 
         int counter_2 = 1;
         System.out.println("cycle [while]:");
-        while (counter_2 <= 5) {
+        while(counter_2 <= 5) {
             System.out.printf("counter_2 = %d", counter_2);
             counter_2++;
             newString();
@@ -319,8 +332,8 @@ public class Main {
         System.out.println("[continue] and [break] operators:");
         System.out.println("[break]:");
         System.out.println("cycle [for (int i = 0; i < 5; i++)]:");
-        for (int i = 0; i < 5; i++) {
-            if (i == 3) {
+        for(int i = 0; i < 5; i++) {
+            if(i == 3) {
                 System.out.printf("i = %d -> [break]", i);
                 newString();
                 break;
@@ -332,8 +345,8 @@ public class Main {
 
         System.out.println("[continue]:");
         System.out.println("cycle [for (int i = 0; i < 5; i++)]:");
-        for (int i = 0; i < 5; i++) {
-            if (i == 3) {
+        for(int i = 0; i < 5; i++) {
+            if(i == 3) {
                 System.out.println("miss -> [continue]");
                 continue;
             }
@@ -342,14 +355,122 @@ public class Main {
         }
         newString();
     }
-    public static void main(String[] args) {
-        dataTypes();
-        // consoleInOut();
-        arithmeticalOperations();
-        bitwiseOperations();
-        conditionalExpressions();
-        conditionalConstructions();
-        cycles();
+    static void massives() {
+        int[] arrayOfNumbers_1 = new int[] {1, 2, 3, 4};
+        int[] arrayOfNumbers_2 = {2, 2, 8, 4, 5, 6};
+        System.out.println("Here's massives:");
+        System.out.print("Cycle [for]: arrayOfNumbers_1 = { ");
+        for(int i = 0; i < arrayOfNumbers_1.length; i++) {
+            System.out.print(arrayOfNumbers_1[i] + " ");
+        }
+        System.out.print("}");
+        newString();
+        System.out.print("Cycle [foreach]: arrayOfNumbers_2 = { ");
+        for(int i : arrayOfNumbers_2) {
+            System.out.print(i + " ");
+        }
+        System.out.println("}");
+        newString();
+
+        System.out.println("Multidimensional arrays:");
+        int[][] multiDimArray = new int[][] {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        System.out.println("multiDimArray (2D) equals:");
+        for(int i = 0; i < multiDimArray.length; i++) {
+            for(int j = 0; j < multiDimArray[i].length; j++) {
+                System.out.print(multiDimArray[i][j] + " ");
+            }
+            newString();
+        }
+        newString();
+    }
+
+    static void exampleMethod() {
+        System.out.println("Here's example of method [static void sum(int ...numbers) { ... }]:");
+        final int INT_1 = 1;
+        final int INT_2 = 2;
+        sum(INT_1, INT_2);
+        sum(INT_1, 5);
+        sum(6, 10);
+        sum(1, 2, 3, INT_1, INT_2);
+        sum();
+        newString();
+
+        System.out.println("Here's example of method [static float sum(float ...numbers) { ... }]:");
+        float z = sum((float)INT_1, (float)INT_2);
+        System.out.println("int z = sum(1.0, 2.0) = " + z);
+        newString();
+
+        System.out.println("Here's example of recurrent method [static int fibonachi(int n) { ... }]:");
+        System.out.println("fibonachi(10) = " + fibonachi(10));
+        newString();
+    }
+    static void sum(int ...numbers) {
+        int result = 0;
+        System.out.print("sum( ");
+        for(int i : numbers) {
+            System.out.printf("%d ", i);
+            result += i;
+        }
+        System.out.printf(") = %d", result);
+        newString();
+    }
+    /*
+     * Here you can see the
+     * so-called "method overloading"
+     * [void sum()] and [float sum()]
+     */
+    static float sum(float ...numbers) {
+        int result = 0;
+        for (float i : numbers) {
+            result += i;
+        }
+        return result;
+    }
+    static int fibonachi(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+        else {
+            return fibonachi(n - 1) + fibonachi(n - 2);
+        }
+    }
+
+    static void introToExceptionHandling() {
+        int[] numbers = new int[4];
+        System.out.println("Here's introduction to exception handling:");
+        System.out.println("[try { ... } catch { ... } finally { ... }]:");
+        System.out.println("int[] numbers = new int[4]");
+        try {
+            System.out.println("[try]: numbers[5] = 5");
+            numbers[5] = 5; // Try changing the type of assigned data to "String"
+        } catch(ArrayIndexOutOfBoundsException ex) {
+            System.out.println("[catch_1]: Going outside the array");
+        } catch(NumberFormatException ex) {
+            System.out.println("[catch_2]: Error converting from string to number");
+        } finally {
+            System.out.println("[finally]: complete");
+        }
+        newString();
+
+        System.out.println("[throw] example:");
+        try {
+            int number = 10;
+            System.out.println("[try]: int number = 10");
+            if(number + 5 > 11) {
+                throw new Exception("number > 11");
+            }
+        } catch (Exception ex) {
+            System.out.print("[catch]: ");
+            System.out.println(ex.getMessage());
+        } finally {
+            System.out.println("[finally]: complete");
+        }
     }
 }
                           
