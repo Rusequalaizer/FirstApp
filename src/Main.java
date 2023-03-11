@@ -244,24 +244,111 @@ public class Main {
         System.out.println("BOOL_1 && BOOL_2 = " + (BOOL_1 && BOOL_2));
         newString();
     }
-    
-    public static void ifElseConstructions() {
-        final int INT_1 = 1; 
+
+    public static void conditionalConstructions() {
+        final int INT_1 = 1;
         final int INT_2 = 2;
-        System.out.println("Here's examples of if/else constructions"); 
-        System.out.println("INT_1 = " + INT_1); 
+        boolean isTrue = INT_1 < INT_2;
+        System.out.println("Here's examples of conditional constructions:");
+        System.out.println("if/else constructions");
+        System.out.println("INT_1 = " + INT_1);
         System.out.println("INT_2 = " + INT_2);
-        if(INT_1 < INT_2) {
-            System.out.println("if_1: INT_1 < INT_2");
+        if(isTrue) {
+            System.out.println("if: INT_1 < INT_2");
+        } else if (INT_1 > INT_2) {
+            System.out.println("else if: INT_1 > INT_2");
+        } else {
+            System.out.println("else: INT_1 == INT_2");
         }
+        newString();
+
+        byte exampleVal_1 = (byte)1;
+        byte exampleVal_2;
+        System.out.println("switch/case construction:");
+        switch (exampleVal_1) {
+            case 3:
+                exampleVal_2 = exampleVal_1;
+                System.out.println("case 3: exampleVal_1 = exampleVal_2 = 3");
+                break;
+            case 2:
+                exampleVal_2 = exampleVal_1;
+                System.out.println("case 2: exampleVal_1 = exampleVal_2 = 2");
+                break;
+            default:
+                exampleVal_2 = exampleVal_1;
+                System.out.println("default: exampleVal_1 = exampleVal_2 = " + exampleVal_2);
+        }
+        newString();
+
+        int x = 1;
+        int y = 2;
+        int z = (x > y) ? (x + y) : (x - y);
+        System.out.println("Ternary operation:");
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
+        System.out.println("z = (x > y) ? (x + y) : (x - y) = " + z);
+        newString();
     }
 
+    public static void cycles() {
+        System.out.println("Here's cycles:");
+        System.out.println("cycle [for]:");
+        for (int i = 0; i < 10; i++) {
+            System.out.printf("i = %d; %d^2 = %d", i, i, (i * i));
+            newString();
+        }
+
+        int counter_1 = 1;
+        System.out.println("cycle [do] (do-while construction):");
+        do {
+            System.out.printf("counter_1 = %d", counter_1);
+            counter_1++;
+            newString();
+        } while ((counter_1 <= 5) && (counter_1 != 1));
+        newString();
+
+        int counter_2 = 1;
+        System.out.println("cycle [while]:");
+        while (counter_2 <= 5) {
+            System.out.printf("counter_2 = %d", counter_2);
+            counter_2++;
+            newString();
+        }
+        newString();
+
+        System.out.println("[continue] and [break] operators:");
+        System.out.println("[break]:");
+        System.out.println("cycle [for (int i = 0; i < 5; i++)]:");
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                System.out.printf("i = %d -> [break]", i);
+                newString();
+                break;
+            }
+            System.out.printf("i = %d", i);
+            newString();
+        }
+        newString();
+
+        System.out.println("[continue]:");
+        System.out.println("cycle [for (int i = 0; i < 5; i++)]:");
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                System.out.println("miss -> [continue]");
+                continue;
+            }
+            System.out.printf("i = %d", i);
+            newString();
+        }
+        newString();
+    }
     public static void main(String[] args) {
         dataTypes();
         // consoleInOut();
         arithmeticalOperations();
         bitwiseOperations();
         conditionalExpressions();
-        ifElseConstructions();
+        conditionalConstructions();
+        cycles();
     }
 }
