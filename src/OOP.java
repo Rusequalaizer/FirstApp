@@ -17,19 +17,64 @@ public class OOP {
         println("Now we create a two new [Person] instances - Polina, Paf:");
         polina.displayInfo();
         paf.displayInfo();
+        print("\n");
 
+        ExtendedPerson exKirill = new ExtendedPerson("Extended Kirill", 20, "Russia", "0-123-456-78-90");
+        println("Now we create a [ExtendedPerson] instance - exKirill:");
+        exKirill.dispInfo();
+        exKirill.dispName();
+        exKirill.dispAge();
+        exKirill.dispPhone();
+        print("\n");
 
+        EncapsPerson encapsKirill = new EncapsPerson("Kirill", 20);
+        String kirEncapsName = encapsKirill.getName();
+        int kirEncapsAge = encapsKirill.getAge();
+        println("Now we create a [EncapsPerson] instance - encapsKirill:");
+        println("Name: " + kirEncapsName);
+        println("Age: " + kirEncapsAge);
+        encapsKirill.setName("(changed Name)");
+        encapsKirill.setAge(21);
+        String kirEncapsChangedName = encapsKirill.getName();
+        int kirEncapsChangedAge = encapsKirill.getAge();
+        println("Now we change instance encapsKirill, using [setName(), setAge()]:");
+        println("Name: " + kirEncapsChangedName);
+        println("Age: " + kirEncapsChangedAge);
+        print("\n");
+
+        StaticPerson statKir = new StaticPerson("Kirill");
+        println("Now we create a [StaticPerson] instance - statKir:");
+        statKir.dispInfo();
+        println("Now we will change the value of the static field \"id\" to 4:");
+        StaticPerson.id = 4;
+        statKir.dispInfo();
+        StaticPerson statPoly = new StaticPerson("Polina");
+        println("Now we create a new [StaticPerson] instance - statPoly:");
+        statPoly.dispInfo();
+        println("Now let's make sure that the fields are static:");
+        StaticPerson.dispStatic();
+        StaticPerson.dispStatic();
+        print("\n");
     }
 
-    static void print(String str) {
+    public static void print(String str) {
         System.out.print(str);
     }
-    static void println(String str) {
+    public static void println(String str) {
         System.out.println(str);
     }
 }
 
 class Person {
+    /*
+     * The simplest example of a class
+     * with default access modifiers for
+     * fields and methods, provides an
+     * opportunity to get acquainted with
+     * the constructor and the general
+     * appearance of the class.
+     */
+
     // Fields:
     String name;
     int age;
@@ -55,32 +100,98 @@ class Person {
     }
 }
 
-class Car {
-    /* This class provides
-     * examples of using the keyword
-     * "this", as well as the initializer
+class ExtendedPerson {
+    /*
+     * An example of an extended class
+     * "Person", which includes a constructor,
+     * fields, methods, and also this class
+     * provides an introduction to the access
+     * modifiers of fields and methods.
      */
-    String color;
-    int length;
-    int width;
 
-    // Initializer:
-    {
-        color = "none";
-        length = 0;
-        width = 0;
+    String name;
+    protected int age;
+    public String address;
+    private final String phone; // You will not be able to access this variable outside the class.
+    ExtendedPerson(String name, int age, String address, String phone) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phone = phone;
     }
+    public void dispName() {
+        System.out.println("Name: " + name);
+    }
+    void dispAge() {
+        System.out.println("Age: " + age);
+    }
+    protected void dispPhone() {
+        System.out.println("Phone: " + phone);
+    }
+    private void dispAddress() { // You will not be able to access this method outside the class
+        System.out.println("Address: " + address);
+    }
+    protected void dispInfo() {
+        System.out.printf("Name: %s\t-\tAge: %d\t-\tAddress: %s\t-\tPhone: %s\n", name, age, address, phone);
+    }
+}
 
-    Car() { }
-    Car(String c) {
-        this(c, 0, 0);
+class EncapsPerson {
+    /*
+     * This class demonstrates the
+     * application of one of the
+     * paradigms of OOP - encapsulation.
+     */
+
+    private String name;
+    private int age;
+    EncapsPerson(String name, int age) {
+        setName(name);
+        setAge(age);
     }
-    Car(String c, int l) {
-        this(c, l, 0);
+    public void setAge(int age) {
+        if(0 <= age && age <= 110) {
+            this.age = age;
+        }
     }
-    Car(String color, int length, int width) {
-        this.color = color;
-        this.length = length;
-        this.width = width;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public int getAge() {
+        return this.age;
+    }
+}
+class StaticPerson {
+    /*
+     * This class allows you to
+     * familiarize yourself with
+     * the "static" modifier.
+     */
+
+    public static int id;
+    private static final int height = 200;
+    private static int counter;
+    private String name;
+
+    static {
+        id = 0;
+        counter = 0;
+    }
+    StaticPerson(String name) {
+        setName(name);
+        id++;
+        counter++;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void dispInfo() {
+        System.out.printf("Name: %s\t\tid: %d\t\tcounter: %d\t\theight: %d\n", name, id, counter, height);
+    }
+    public static void dispStatic() {
+        System.out.printf("Name: \t\t\t\tid: %d\t\tcounter: %d\t\theight: %d\n", id, counter, height);
     }
 }
