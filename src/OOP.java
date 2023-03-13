@@ -55,6 +55,10 @@ public class OOP {
         StaticPerson.dispStatic();
         StaticPerson.dispStatic();
         print("\n");
+
+        MathClass.Factorial fact = MathClass.getFactorial(6);
+        println("Now we create a [MathClass.Factorial] instance - fact:");
+        System.out.printf("Factorial of %d is %d", fact.getKey(), fact.getResult());
     }
 
     public static void print(String str) {
@@ -193,5 +197,34 @@ class StaticPerson {
     }
     public static void dispStatic() {
         System.out.printf("Name: \t\t\t\tid: %d\t\tcounter: %d\t\theight: %d\n", id, counter, height);
+    }
+}
+
+class MathClass {
+    /*
+     * Example of a static nested
+     * class (yes, classes can be
+     * nested and internal).
+     */
+    public static class Factorial {
+        private final int result;
+        private final int key;
+        public Factorial(int result, int key) {
+            this.result = result;
+            this.key = key;
+        }
+        public int getResult() {
+            return result;
+        }
+        public int getKey() {
+            return key;
+        }
+    }
+    public static Factorial getFactorial(int x) {
+        int result = 1;
+        for(int i = 1; i <= x; i++) {
+            result *= i;
+        }
+        return new Factorial(result, x);
     }
 }
