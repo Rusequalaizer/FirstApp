@@ -58,7 +58,30 @@ public class OOP {
 
         MathClass.Factorial fact = MathClass.getFactorial(6);
         println("Now we create a [MathClass.Factorial] instance - fact:");
-        System.out.printf("Factorial of %d is %d", fact.getKey(), fact.getResult());
+        System.out.printf("Factorial of %d is %d\n", fact.getKey(), fact.getResult());
+        print("\n");
+
+        Employee inherKirill = new Employee("Kirill", 20, "Programmer", "Junior");
+        println("Now we create a [Employee] instance - inherKirill:");
+        inherKirill.dispInfo();
+        /*
+         * This section of code demonstrates
+         * the possibility of dynamic dispatching
+         * of methods in the class [start - end].
+         */
+        EncapsPerson encapsToInherKir = new Employee("Kirill", 20);             // Start.
+        System.out.print("""
+                        
+                        Now we will create an object
+                        of the [EncapsPerson] class, but
+                        when initializing we will declare
+                        it as [Employee]:
+                        [EncapsPerson encapsToInherKir = new Employee("Kirill", 20);]
+                        
+                        """);
+        String name = encapsToInherKir.getName();
+        encapsToInherKir.setAge(20);
+        System.out.println("Name: " + name + "\tAge: " + encapsToInherKir.getAge());        // End.
     }
 
     public static void print(String str) {
@@ -153,7 +176,7 @@ class EncapsPerson {
         setName(name);
         setAge(age);
     }
-    public void setAge(int age) {
+    public final void setAge(int age) { // The keyword [final] prohibits inheritance
         if(0 <= age && age <= 110) {
             this.age = age;
         }
@@ -226,5 +249,41 @@ class MathClass {
             result *= i;
         }
         return new Factorial(result, x);
+    }
+}
+
+class Employee extends EncapsPerson {
+    /*
+     * Here's example of a
+     * class implementing
+     * inheritance as one of
+     * the OOP paradigms.
+     */
+
+    private String profession;
+    private String position;
+    public Employee(String name, int age) {
+        super(name, age);
+        setProfession("none");
+        setPosition("none");
+    }
+    public Employee(String name, int age, String profession, String position) {
+        super(name, age);
+        setPosition(position);
+        setProfession(profession);
+    }
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    public void dispInfo() {
+        System.out.printf("| Name: %s |\t| Age: %d |\t| Profession: %s |\t| Position: %s |\n",
+                            getName(), getAge(), profession, position);
+    }
+    @Override
+    public String getName() {
+        return super.getName() + "(Overrided)";
     }
 }
