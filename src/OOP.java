@@ -229,6 +229,7 @@ class MathClass {
      * class (yes, classes can be
      * nested and internal).
      */
+
     public static class Factorial {
         private final int result;
         private final int key;
