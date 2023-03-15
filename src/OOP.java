@@ -82,6 +82,15 @@ public class OOP {
         String name = encapsToInherKir.getName();
         encapsToInherKir.setAge(20);
         System.out.println("Name: " + name + "\tAge: " + encapsToInherKir.getAge());        // End.
+        print("\n");
+
+        EmployeeH kirEmployeeH = new EmployeeH("Kirill", 20, "Programmer");
+        Client polyClient = new Client("Polina", 20, "12 34 567890");
+        Client kirClient = new Client("Kirill", 20, "09 87 654321");
+        println("Now we create a [EmployeeH, Client] instances - kirEmployeeH, polyClient, kirClient:");
+        kirEmployeeH.displayInfoHuman();
+        polyClient.displayInfoHuman();
+        kirClient.displayInfoHuman();
     }
 
     public static void print(String str) {
@@ -229,6 +238,7 @@ class MathClass {
      * class (yes, classes can be
      * nested and internal).
      */
+
     public static class Factorial {
         private final int result;
         private final int key;
@@ -285,5 +295,67 @@ class Employee extends EncapsPerson {
     @Override
     public String getName() {
         return super.getName() + "(Overrided)";
+    }
+}
+
+abstract class Human {
+    /*
+     * An example of an abstract class
+     * (the following two classes: EmployeeH
+     * and Client are inherited from this
+     * class). Note that there is an abstract
+     * method in this class, which must be
+     * redefined in inherited classes.
+     */
+
+    private final String NAME;
+    private final int AGE;
+    Human(String name, int age) {
+        this.NAME = name;
+        this.AGE = age;
+    }
+    public String getName() {
+        return this.NAME;
+    };
+    public int getAge() {
+        return this.AGE;
+    };
+    public abstract void displayInfoHuman();
+}
+
+class Client extends Human {
+    private final String PASSPORT;
+    public static int id = 0;
+    Client(String name, int age, String passport) {
+        super(name, age);
+        this.PASSPORT = passport;
+        id++;
+    }
+    public String getPassport() {
+        return this.PASSPORT;
+    }
+    public static int getId() {
+        return id;
+    }
+    @Override
+    public void displayInfoHuman() {
+        System.out.printf("| Name: %s |\t| Age: %d |\t| Passport: %s |\t| Id: %d |\n",
+                super.getName(), super.getAge(), this.getPassport(), getId());
+    }
+}
+
+class EmployeeH extends Human {
+    private final String PROFESSION;
+    EmployeeH(String name, int age, String profession) {
+        super(name, age);
+        this.PROFESSION = profession;
+    }
+    public String getProfession() {
+        return this.PROFESSION;
+    }
+    @Override
+    public void displayInfoHuman() {
+        System.out.printf("| Name: %s |\t| Age: %d |\t| Profession: %s |\n",
+                super.getName(), super.getAge(), this.getProfession());
     }
 }
